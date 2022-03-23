@@ -1,0 +1,1 @@
+<h1>Admin : cập nhật bài viếtid {{$id}} </h1>
