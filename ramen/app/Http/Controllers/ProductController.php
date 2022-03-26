@@ -2,24 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 
-class ProductController extends Controller{
+class ProductController extends Controller
+{
     //
-     function show($id){
-        //return "Thông tin sản phẩm id ".$id;
-        $price = 10030;
-        $colors = ['red', 'green'];
-       // return view('product.syohin-ichiran', array('id' => $id, 'price' => $price));   thêm 1 mảng array hoặc dùng compact
-       return view('product.syohin-ichiran',compact('id', 'price','colors'));
+    function show($id)
+    {
+        $products = DB::table('products')
+            ->where('id', $id)
+            ->get();
+        echo "<pre>";
+        print_r($products);
+        echo "</pre";
     }
 
-    function create(){
-       // return "Thêm sản phẩm mới ";
-       return view('product.create');
+    function insert()
+    {
+        DB::table('products')
+            ->insert([
+                'id' => 2,
+                'name' => 'tieu de 2',
+                'price' => 3000,
+                'product_cat_id' => 1,
+                'user_id' => 3
+            ]);
     }
-    function update($id){
-        return "Update sản phẩm có id ".$id;
+    function update($id)
+    {
+       DB::table('products')
+       ->where('id',$id)
+       ->update(
+           ['price'=>30000]
+       );
     }
 }
-
