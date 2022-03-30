@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminPostcontroller;
 use App\Http\Controllers\Post1Controller;
 use App\Http\Controllers\PostController;
 use App\Post;
+use App\Role;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -124,3 +125,7 @@ Route::get('product/update/{id}','ProductController@update');
 //     return $posts;
 // });
 Route::get('posts/read', 'Postcontroller@read');
+Route::get('featuredimage/read','FeaturedImagescontroller@read');
+
+
+Route::get('role/show', 'RoleController@show');

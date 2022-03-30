@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -154,21 +155,33 @@ class PostController extends Controller
         //     $posts = Post::withTrashed()
         //         ->get();
         //     return  $posts;
-        $posts = Post::onlyTrashed()
-            ->get();
+        #lấy những phần tử đã xóa tạm thời 
+        // $posts = Post::onlyTrashed()
+        //     ->get();
+        // return $posts;
+        #thiết lâoj database one to one  
+        // $img = Post::find(8)
+        //     ->FeaturedImages;
+        // return $img;
+        # thiết lập lấy data one to many 
+        // $user = Post::find(8)
+        //     ->user;
+        $posts = User::find(2)
+            ->posts; // posts nay la function trong User.php
         return $posts;
     }
     function restore($id)
     {
         #restore lại những cái đã xóa 
-        // $post = Post::onlyTrashed()
-        //     ->where('id', $id)
-        //     ->restore();  
+        $post = Post::onlyTrashed()
+            ->where('id', $id)
+            ->restore();
     }
-    function permanentlyDelete($id){
+    function permanentlyDelete($id)
+    {
         Post::onlyTrashed()
-        ->where('id', $id)
-        ->forceDelete();
+            ->where('id', $id)
+            ->forceDelete();
     }
 }
 
