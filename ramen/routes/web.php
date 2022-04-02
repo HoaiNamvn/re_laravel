@@ -24,30 +24,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 #2.test1
-Route::get('/v', function () {
-    return "xin chao";
-});
+// Route::get('/v', function () {
+//     return "xin chao";
+// });
 #3.test2
-Route::get('post',function(){
-return " day la trang bai viet";
-});
+// Route::get('post',function(){
+// return " day la trang bai viet";
+// });
 #4.test include id ingrument
 //Route::get('post/{id}', function($id){
 //    return $id;
 //});
 #5. post/1/page/3
-Route::get('posts/{cat_id}/page/{page}', function($cat_id,$page){
-    return $cat_id.'--'.$page;
-});
+// Route::get('posts/{cat_id}/page/{page}', function($cat_id,$page){
+//     return $cat_id.'--'.$page;
+// });
 #6. Đặt tên Route
 // Route::get('users/profile', function(){
 //     return route('profile');
     // return that route url http/doname
 // }) -> name('profile'); // set name to route
 
-Route::get('admin/product/add', function(){
-    return route('product.add');
-}) -> name('product.add');
+// Route::get('admin/product/add', function(){
+//     return route('product.add');
+// }) -> name('product.add');
 #7. url co or khong agrument
 // create route with or without option agrument
 // users/id
@@ -67,65 +67,73 @@ Route::get('admin/product/add', function(){
 
 #10. resourse Route
 //Route::resource('post', 'PostController');
-Route::get('post/index', 'PostController@index');
-Route::get('admin/post/show', 'AdminPostcontroller@show');
+// Route::get('post/index', 'PostController@index');
+// Route::get('admin/post/show', 'AdminPostcontroller@show');
 
 
-Route::get('child', function(){
-    return view('child',['data' =>5,'post_title' => "tiêu đề trang con"]);
-});
-#11. sentting array data to blade file 
-Route::get('demo', function () {
-    $users = array(
-        1 => array(
-            'name' => 'Đoàn Hoài Nam'
-        ),
-        2 => array(
-            'name' => 'Phan Văn Cương'
-        ),
-    );
-    return view('demo', compact('users')) ;
-});
-#bai tap
-Route::get('admin/post/add', 'AdminPostcontroller@add');
-Route::get('admin/post/show', 'AdminPostcontroller@show');
-Route::get('admin/post/update/{id}', 'AdminPostcontroller@update');
-Route::get('admin/post/delete/{id}', 'AdminPostcontroller@delete');
+// Route::get('child', function(){
+//     return view('child',['data' =>5,'post_title' => "tiêu đề trang con"]);
+// });
+#11. sentting array data to blade file
+// Route::get('demo', function () {
+//     $users = array(
+//         1 => array(
+//             'name' => 'Đoàn Hoài Nam'
+//         ),
+//         2 => array(
+//             'name' => 'Phan Văn Cương'
+//         ),
+//     );
+//     return view('demo', compact('users')) ;
+// });
+// #bai tap
+// Route::get('admin/post/add', 'AdminPostcontroller@add');
+// Route::get('admin/post/show', 'AdminPostcontroller@show');
+// Route::get('admin/post/update/{id}', 'AdminPostcontroller@update');
+// Route::get('admin/post/delete/{id}', 'AdminPostcontroller@delete');
 
 
 
 # insert data from route
-Route::get('users/insert', function(){
-    //cần phải thêm module table 
-    DB::table('users') -> insert(
-        // chi can dien nhung tu khong bắt buộc phải null 
-         ['name' => 'Phan Thu Hang', 'email' => 'hang@gmail.com', 'password'=>bcrypt('hang')]
-    );
-});
+// Route::get('users/insert', function(){
+//     //cần phải thêm module table
+//     DB::table('users') -> insert(
+//         // chi can dien nhung tu khong bắt buộc phải null
+//          ['name' => 'Phan Thu Hang', 'email' => 'hang@gmail.com', 'password'=>bcrypt('hang')]
+//     );
+// });
 
 
-Route::get('posts/add', 'PostController@add');
-Route::get('posts/show', 'PostController@show');
-Route::get('posts/update/{id}', 'PostController@update');
-Route::get('posts/delete/{id}', 'PostController@delete');
-Route::get('posts/permanentlydelete/{id}', 'PostController@permanentlydelete');
-Route::get('posts/restore/{id}', 'PostController@restore');
+// Route::get('posts/add', 'PostController@add');
+// Route::get('posts/show', 'PostController@show');
+// Route::get('posts/update/{id}', 'PostController@update');
+// Route::get('posts/delete/{id}', 'PostController@delete');
+// Route::get('posts/permanentlydelete/{id}', 'PostController@permanentlydelete');
+// Route::get('posts/restore/{id}', 'PostController@restore');
 
 
 
-#BAI TAP 
+#BAI TAP
 
-Route::get('product/show/{id}','ProductController@show');
-Route::get('product/insert','ProductController@insert');
-Route::get('product/update/{id}','ProductController@update');
-# eluquent orm 
+// Route::get('product/show/{id}','ProductController@show');
+// Route::get('product/insert','ProductController@insert');
+// Route::get('product/update/{id}','ProductController@update');
+# eluquent orm
 // Route::get('posts/read', function(){
-//     // lấy tất cả bản ghi 
+//     // lấy tất cả bản ghi
 //     $posts = Post::all();
 //     return $posts;
 // });
-Route::get('posts/read', 'Postcontroller@read');
-Route::get('featuredimage/read','FeaturedImagescontroller@read');
+// Route::get('posts/read', 'Postcontroller@read');
+// Route::get('featuredimage/read','FeaturedImagescontroller@read');
 
 
-Route::get('role/show', 'RoleController@show');
+// Route::get('role/show', 'RoleController@show');
+
+#FORM
+Route::get('post/add', 'Postcontroller@add');
+Route::post('post/store', 'Postcontroller@store');
+Route::get('user/add', function(){
+    return view('user/reg');
+});
+Route::get('post/show', 'Postcontroller@show')->name('post.show');
