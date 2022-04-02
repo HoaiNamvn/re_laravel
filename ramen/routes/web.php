@@ -137,3 +137,5 @@ Route::get('user/add', function(){
     return view('user/reg');
 });
 Route::get('post/show', 'Postcontroller@show')->name('post.show');
+Route::get('helper/url', 'HelperController@url');
+Route::get('helper/string', 'HelperController@string');
