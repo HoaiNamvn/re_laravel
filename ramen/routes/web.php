@@ -139,3 +139,9 @@ Route::get('user/add', function(){
 Route::get('post/show', 'Postcontroller@show')->name('post.show');
 Route::get('helper/url', 'HelperController@url');
 Route::get('helper/string', 'HelperController@string');
+Route::get('session/add', 'SessionController@add');
+Route::get('session/add_flash', 'SessionController@add_flash');
+Route::get('session/show', 'SessionController@show');
+Route::get('session/delete', 'SessionController@delete');
+Route::get('cookie/set', 'CookieController@set');
+Route::get('cookie/get', 'CookieController@get');

@@ -26,6 +26,7 @@
             </li>
         @endforeach
     </ul>
+    {{ $posts->appends(['sort' => 'votes'])->links() }}
 </body>
 
 </html>
