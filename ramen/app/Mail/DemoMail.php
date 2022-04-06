@@ -16,9 +16,10 @@ class DemoMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $data;
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -28,6 +29,10 @@ class DemoMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.DemoMail');
+        return $this->view('mails.demo')
+        ->from('doanhoainam098@gmail.com','HOAI NAM') // change laravel by default
+        ->subject('THƯ XÁC NHẬN ĐƠN HÀNG #268 ') //subject want to sent
+        ->with($this->data);
+
     }
 }
