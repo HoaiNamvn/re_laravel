@@ -20,9 +20,9 @@ use Illuminate\Support\Facades\DB;
 |
 */
 #1. root
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 #2.test1
 // Route::get('/v', function () {
 //     return "xin chao";
@@ -172,3 +172,7 @@ Route::group(['prefix' => 'laravel-filemanager',], function () {
 //     Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
 //     // list all lfm routes here...
 // });
+
+# GIỎ HÀNG
+Route::get('/', 'ProductController1@show');
+Route::get('cart/show', 'CartController@show');

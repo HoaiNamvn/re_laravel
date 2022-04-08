@@ -29,7 +29,7 @@
         @foreach ($posts as $post)
             <li>
                 <a href="">{{ $post->title }}</a> <br>
-                <p>{{ $post->content }}</p>
+                <p>{!! $post->content !!}</p>
                 {{-- <img src="{{url($post->thumbnail)}}" alt=""> --}}
             </li>
         @endforeach
