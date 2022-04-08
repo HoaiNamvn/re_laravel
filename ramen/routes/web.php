@@ -139,3 +139,31 @@ Route::get('user/add', function(){
 Route::get('post/show', 'Postcontroller@show')->name('post.show');
 Route::get('helper/url', 'HelperController@url');
 Route::get('helper/string', 'HelperController@string');
+Route::get('session/add', 'SessionController@add');
+Route::get('session/add_flash', 'SessionController@add_flash');
+Route::get('session/show', 'SessionController@show');
+Route::get('session/delete', 'SessionController@delete');
+Route::get('cookie/set', 'CookieController@set');
+Route::get('cookie/get', 'CookieController@get');
+
+
+
+# MAIL
+Route::get('demo/sendmail', 'DemoController@sendmail');
+
+# File manager
+
+Route::group(['prefix' => 'laravel-filemanager',], function () {
+   \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+// mẫ phía trên sẽ bị lỗi thay mã phía dưới
+
+// Route::group(['prefix' => 'laravel-filemanager'],  function () {
+//      '\vendor\UniSharp\LaravelFilemanager\Lfm::routes()';
+//      });
+
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::get('/laravel-filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
+//     Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
+//     // list all lfm routes here...
+// });

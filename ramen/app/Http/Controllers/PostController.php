@@ -97,9 +97,16 @@ class PostController extends Controller
         // echo "<pre>";
         // print_r($posts);
         // echo "</pre>";
-
-        $posts = Post::all();
+        // $posts = Post::all();
+        // return view('post.index', compact('posts'));
+        #Query builder
+        // $posts = DB::table('posts')->paginate(4);
+        // return view('post.index', compact('posts'));
+        #eluquent ORM
+        $posts = Post::where('id','>',9)->orderby('id', 'desc')->Paginate(3); /// or simplePaginate
+        $posts->withPath('demo/show'); // sau đó định nghĩa lại đường dẫn trong web.php
         return view('post.index', compact('posts'));
+
     }
     function update($id)
     {  # QUERY BUILDER
