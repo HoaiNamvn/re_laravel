@@ -177,6 +177,8 @@ return [
 // thêm 2 òng dưới này cho file manager feature
         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        //thêm Cảrt
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
 
     ],
 
@@ -230,7 +232,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         // add
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+        // cart
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+
+
 
     ],
 

@@ -175,4 +175,6 @@ Route::group(['prefix' => 'laravel-filemanager',], function () {
 
 # GIỎ HÀNG
 Route::get('/', 'ProductController1@show');
+
 Route::get('cart/show', 'CartController@show');
+Route::get('cart/add/{id}', 'CartController@add')->name('cart.add');
