@@ -15,19 +15,43 @@ class CartController extends Controller
 
     function add(Request $request, $id)
     {
+        // Cart::destroy();
         // gõ cart xong tab để thêm Facades/cart
         $product = Product::find($id);
-        return $product;
+        // return $product;
         Cart::add([
             'id' => $product->id,
-            'name' =>$product->name,
+            'name' => $product->name,
             'qty' => 1,
-            'price' =>$product->price,
-            // 'options' => ['size' => 'large']
+            'price' => $product->price,
+            'options' => ['thumbnail' => $product->thumbnail]
         ]);
+        // echo "<pre>";
+        // print_r(Cart::content());
+        return redirect('cart/show');
+    }
 
-        echo "<pre>";
-        print_r(Cart::content());
-        // return "THêm sản phẩm {$id} vào giỏ hàng ";
+    function remove($rowId){
+        Cart::remove($rowId);
+        return redirect('cart/show');
+    }
+
+    # xoa all cart
+    function destroy(){
+        Cart::destroy();
+        return redirect('cart/show');
+    }
+
+    # update cart
+    function update(Request $request){
+        // dd($request->all());
+        // return $request->all();
+        $data = $request->get('qty');
+
+        foreach($data as $k=>$v){
+            Cart::update($k,$v);
+        }
+        return redirect('cart/show');
+
     }
 }

@@ -178,3 +178,8 @@ Route::get('/', 'ProductController1@show');
 
 Route::get('cart/show', 'CartController@show');
 Route::get('cart/add/{id}', 'CartController@add')->name('cart.add');
+
+Route::get('cart/remove/{rowId}', 'CartController@remove')->name('cart.remove');
+
+Route::get('cart/destroy', 'CartController@destroy')->name('cart.destroy');
+ROute::post('cart/update', 'CartController@update')->name('cart.update');

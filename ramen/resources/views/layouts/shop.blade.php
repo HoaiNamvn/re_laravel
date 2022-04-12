@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-md-8">
                         <a href="{{ url('cart/show') }}" class="py-2 d-block float-right text-danger">Giỏ hàng<span
-                                class="text-success">(5)</span></a>
+                                class="text-success">({{Cart::count()}})</span></a>
                     </div>
                 </div>
             </div>
