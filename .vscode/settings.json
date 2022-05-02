@@ -1,0 +1,8 @@
+{
+    "laravel_goto_view.folders": {
+    
+        "default": "/resources/views",
+        "js": "/resources/js/Pages",
+        "vendor": "/resources/views/vendor"
+    }
+}
